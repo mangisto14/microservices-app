@@ -32,11 +32,11 @@ jobs:
     - name: Clone GitOps Repo
       run: |
         git clone https://x-access-token:${{ secrets.GITOPS_REPO_TOKEN }}@github.com/mangisto14/gitops-applications.git
-        cd helm-gitops-repo
+        cd gitops-applications
 
     - name: Update Helm values file
       run: |
-        cd helm-gitops-repo
+        cd gitops-applications
 
         if [ "${{ github.ref_name }}" = "dev" ]; then
           VALUES_FILE="charts/myapp/values-dev.yaml"
